@@ -26,6 +26,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 
+// Configuring Passport
+var passport = require('passport');
+var expressSession = require(express-session);
+app.use(expressSession({secret: 'mySecretKey'}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
